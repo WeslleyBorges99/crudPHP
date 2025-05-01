@@ -1,0 +1,80 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+}
+
+h1{
+    text-align: left;
+}
+
+a{
+    text-decoration: none;
+}
+
+.addButton{
+    border: 2px solid black;
+    padding: 0.5rem 1rem;
+    background-color: #2E8B57;
+    color: white;
+}
+
+.addButton:hover{
+    background-color: #3CB371;
+    transition: 0.3s;
+}
+
+.addButton:focus{
+    background-color: #3CB371;
+    transition: 0.3s;
+}
+
+.titleDiv{
+    display: flex;
+    gap: 10rem;
+    border: 2px solid black;
+    padding: 1rem;
+    background-color: #87CEEB;
+}
+
+.tableDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.divPai{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.crudTable{
+    border: 2px solid black;   
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.crudTable thead{
+    background-color: rgb(195, 192, 192);
+}
+
+.crudTable td, th{
+    border-bottom: 2px solid black;
+    padding: 0.5rem;
+}
+
+.editButton{
+    margin-right: 1rem;
+}
+
+.addicon{
+    width: 2rem;
+}
+
+.icon{
+    width: 1.2rem;
+}
