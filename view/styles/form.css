@@ -1,0 +1,35 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+}
+
+.divPai{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    text-align: center;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.form input{
+    padding: 1rem;
+}
+
+.form input:hover{
+    background-color: #87CEEB;
+    transition: 0.3s;
+}
+
+.form input:focus{
+    background-color: #87CEEB;
+    transition: 0.3s;
+}
