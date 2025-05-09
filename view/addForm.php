@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,7 +11,14 @@
 </head>
 <body>
     <div class="divPai">
+        <div class = "returnButton"><a href="/">Voltar</a></div>
         <form class="form" action="./../controller/addUser.php" method="post">
+            <?php
+            if(isset($_SESSION['createMessage'])){
+                echo "<h3>".$_SESSION['createMessage']."</h3>";
+                unset($_SESSION['createMessage']);
+            }
+            ?>
             <h2>Crie um usuário</h2>
             <input type="text" name="name" id="" placeholder="Nome">
             <input type="text" name="surname" id="" placeholder="Sobrenome">

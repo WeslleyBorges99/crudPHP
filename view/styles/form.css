@@ -11,6 +11,25 @@
     align-items: center;
 }
 
+.returnButton{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.returnButton a{
+    border: 2px solid black;
+    padding: 0.2rem 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.returnButton a:hover{
+    background-color: #2874a6;
+    color: white;
+    transition: 0.3s;
+}
+
 .form{
     text-align: center;
     border: 2px solid black;
@@ -25,11 +44,11 @@
 }
 
 .form input:hover{
-    background-color: #87CEEB;
+    background-color: #2874a6;
     transition: 0.3s;
 }
 
 .form input:focus{
-    background-color: #87CEEB;
+    background-color: #2874a6;
     transition: 0.3s;
 }
