@@ -20,10 +20,10 @@
             }
             ?>
             <h2>Crie um usuário</h2>
-            <input type="text" name="name" id="" placeholder="Nome">
-            <input type="text" name="surname" id="" placeholder="Sobrenome">
-            <input type="date" name="birth" id="" placeholder="Nascimento">
-            <input type="email" name="email" id="" placeholder="Email">
+            <input type="text" name="name" id="" placeholder="Nome" required>
+            <input type="text" name="surname" id="" placeholder="Sobrenome" required>
+            <input type="date" name="birth" id="" placeholder="Nascimento" required>
+            <input type="email" name="email" id="" placeholder="Email" required>
             <input type="submit" name="criarUsuario" id="">
         </form>
     </div>

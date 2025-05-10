@@ -10,5 +10,5 @@
     $createUser = new User($db);
     $createUser->createUser($name, $surname, $birth, $email);
     $db = null;
-
+    $createUser->closeConection();
 ?>

@@ -21,6 +21,14 @@
                 <h1>Crud de contas</h1>
                 <a class="addButton" href="./view/addForm.php">Adicionar Usuário</a>
             </div>
+            <?php
+            if(isset($_SESSION['modelMessage'])){
+                echo "<h2>".$_SESSION['modelMessage']."</h2>";
+                $_SESSION['modelMessage'] = "<h2>Banco de usuários</h2>";
+            }else{
+                echo "<h2>Banco de usuários</h2>";
+            }
+            ?>
         <table class="crudTable">
             <thead>
                 <tr>
@@ -39,14 +47,14 @@
                         <tr>
                         <td><?php echo $user['id'] ?></td>
                         <td><?php echo $user['nome'] ?></td>
-                        <td><?php echo $user['surname'] ?></td>
-                        <td><?php echo $user['birth'] ?></td>
+                        <td><?php echo $user['sobrenome'] ?></td>
+                        <td><?php echo $user['nascimento'] ?></td>
                         <td><?php echo $user['email'] ?></td>
                         <td class="actionstd">
-                            <a class="editButton" href="">
+                            <a class="editButton" href="./view/updateForm.php?id=<?php echo $user['id']; ?>">
                                 <img class="icon" src="./view/assets/editar-texto.png" alt="">
                             </a>
-                            <a class="deleteButton" href="">
+                            <a onClick = "confirm('Deseja realmente deletar este usuário?')" class="deleteButton" href="./controller/deleteUser.php?id=<?php echo $user['id']; ?>">
                                 <img class="icon" src="./view/assets/botao-apagar.png" alt="">
                             </a>
                     </td>

@@ -17,10 +17,20 @@
             $this->id = $id;
         }
 
+        public function closeConection() {
+            $this->db = null;
+        }
+
         public function getAllUsers() {
             $selectCommand = "SELECT * FROM users";
             $users = $this->db->query($selectCommand);
             return $users;
+        }
+
+        public function getUser() {
+            $selectCommand = "SELECT * FROM users WHERE id=".$this->id;
+            $user = $this->db->query($selectCommand);
+            return $user;
         }
 
         public function createUser($name, $surname, $birth, $email) {
@@ -39,6 +49,40 @@
                 header('Location: ./../view/addForm.php');
             }catch(Exception $e){
                 echo "Erro ao tentar criar usuário de email $email: $e";
+            }
+        }
+
+        public function deleteUser() {
+            $deleteCommand = "DELETE FROM users WHERE id=?";
+            $commandExec = $this->db->prepare($deleteCommand);
+            $commandExec->bindParam(1, $this->id);
+            try{
+                if($commandExec->execute()) {
+                    $_SESSION['modelMessage'] = "Usuário de id = ".$this->id." foi deletado com sucesso";
+                }else{
+                    $_SESSION['modelMessage'] = "Não foi possivel deletar o usuário de id = ".$this->id;
+                }
+            }catch(Exception $e){
+                echo "Erro ao tentar deletar usuário: $e";
+            }
+        }
+
+        public function updateUser($name, $surname, $birth, $email) {
+            $updateCommand = "UPDATE users SET nome=?, sobrenome=?, nascimento=?, email=? WHERE id=?";
+            $commandExec = $this->db->prepare($updateCommand);
+            $commandExec->bindParam(1, $name);
+            $commandExec->bindParam(2, $surname);
+            $commandExec->bindParam(3, $birth);
+            $commandExec->bindParam(4, $email);
+            $commandExec->bindParam(5, $this->id);
+            try{
+                if($commandExec->execute()) {
+                    $_SESSION['modelMessage'] = "Dados de usuário atualizados";
+                }else{
+                    $_SESSION['modelMessage'] = "Não foi possivel atualizar os dados do usuário";
+                }
+            }catch(Exception $e){
+                echo "Erro ao tentar atualizar os dados do usuário de id = ".$this->id." -> $e";
             }
         }
     }
